@@ -27,3 +27,4 @@ run db
 
 --npm install bcrypt
 -- npm install -D @types/bcrypt
+--npm install query-string
