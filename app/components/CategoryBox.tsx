@@ -7,6 +7,7 @@ import qs from 'query-string';
 interface CategoryBoxProps{
 	icon: IconType;
 	label: string;
+	selected?: boolean;
 }
 	
 	
@@ -20,7 +21,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({ icon: Icon, label, selected }
 		};
 		const updatedQuery: any = {
 			...currentQuery,
-			cutegory:label
+			category:label
 		}
 		if (params?.get('category') === label) {
 			delete updatedQuery.category;
@@ -32,7 +33,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({ icon: Icon, label, selected }
 		router.push(url);
 	}, [label, params, router]);
 	return (
-		<div onClick={handleClick} className={`flex flex-col items-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer 
+		<div onClick={handleClick} className={`flex flex-col justify-center items-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer 
 		${selected ? 'border-b-neutral-800' : 'border-transparent'}
 		${selected ? 'text-neutral-800' : 'text-neutral-500'}	` 
 }>
