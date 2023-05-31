@@ -28,3 +28,5 @@ run db
 --npm install bcrypt
 -- npm install -D @types/bcrypt
 --npm install query-string
+--npm i world-countries
+--npm i react-select
