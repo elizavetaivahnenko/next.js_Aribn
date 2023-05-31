@@ -16,10 +16,12 @@ import Button from "../Button";
 import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
-	const registerModal = useRegisterModal();
 	const router = useRouter();
+	const registerModal = useRegisterModal();
 	const loginModal = useLoginModal();
+
 	const [isLoading, setIsLoading] = useState(false);
+
 	const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
 		defaultValues: {
 			email: '',
@@ -30,7 +32,7 @@ const LoginModal = () => {
 		setIsLoading(true);
 		signIn('credentials', {
 			...data,
-			redirect:false
+			redirect: false
 		}).then((callback) => {
 			setIsLoading(false);
 			if (callback?.ok) {
@@ -43,7 +45,7 @@ const LoginModal = () => {
 			}
 		}
 		);
-	}
+	};
 	const bodyContent = (
 		<div className="flex flex-col gap-4">
 			<Heading title="Welcome back" subtitle="Login to your account" />
@@ -51,6 +53,10 @@ const LoginModal = () => {
 			<Input id="password" type="password" label="Password" disabled={isLoading} register={register} errors={errors} required />
 		</div>
 	);
+	const toggle = useCallback(() => {
+		loginModal.onClose();
+		registerModal.onOpen();
+	},[loginModal, registerModal]);
 	const footerContent = (
 		<div className="flex flex-col gap-4 mt-3">
 			<hr />
@@ -59,10 +65,10 @@ const LoginModal = () => {
 			<div className="text-neutral-500 text-center mt-4 font-light">
 				<div className="flex justify-center flex-row items-center gap-2">
 					<div>
-					Already have an account?
+					First time using Airbnb?
 					</div>
-					<div onClick={registerModal.onClose} className="text-neutral-800 cursor-pointer hover: underline">
-					Log in
+					<div onClick={toggle} className="text-neutral-800 cursor-pointer hover: underline">
+					Create an account
 					</div>
 				</div>
 			</div>
