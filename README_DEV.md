@@ -30,3 +30,6 @@ run db
 --npm install query-string
 --npm i world-countries
 --npm i react-select
+--npm i leaflet
+--npm i -D @types/leaflet
+---npm i react-leaflet
