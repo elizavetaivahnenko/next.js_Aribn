@@ -33,3 +33,6 @@ run db
 --npm i leaflet
 --npm i -D @types/leaflet
 ---npm i react-leaflet
+
+img
+---npm install next-cloudinary
