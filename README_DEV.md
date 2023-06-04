@@ -38,3 +38,5 @@ img
 ---npm install next-cloudinary
 
 --npm i date-fns
+--npm i react-date-range
+--npm i -D @types/react-date-range
